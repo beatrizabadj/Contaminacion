@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultados de Calidad del Aire</title>
+</head>
+<body>
+    <h1>Resultados de Calidad del Aire</h1>
+    <h2>Datos de contaminación para el día {{ dia }}</h2>
+    
+    <table>
+        <tr>
+            <th>Estación</th>
+            <th>Nivel de Contaminación</th>
+        </tr>
+        {% for index, row in datos_contaminacion.iterrows() %}
+        <tr>
+            <td>{{ row["ESTACIO"] if "ESTACIO" in row else "" }}</td>
+            <td>{{ row["NIVELL"] if "NIVELL" in row else "" }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
